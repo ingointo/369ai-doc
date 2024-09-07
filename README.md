@@ -9,7 +9,7 @@
    1.4 [Prerequisites](#14-prerequisites)
 
 2. [Project Structure](#2-project-structure)  
-   2.1 [Overview](#21-overview)  
+   2.1 [Overview](#21-overview) [Detailed Project Structure 369ai.Biz](https://github.com/ingointo/369ai-doc/blob/main/project-structure.md)
    2.2 [Explanation of Folder and File Organization](#22-explanation-of-folder-and-file-organization)
 
 3. [Components Documentation](#3-components-documentation)  
