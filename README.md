@@ -28,7 +28,33 @@
 
 6. [Hooks Documentation](#6-hooks-documentation)   
    6.1 [Folder Structure & Explanation](#61-folder-structure) 
-   
+
+7. [Navigation Documentation](#7-navigation-documentation)   
+   7.1 [Structure](#71-structure)     
+   7.2 [Navigators](#72-navigators)   
+   7.3 [Navigation Flow](#73-navigation-flow)  
+   7.4 [Key Features](#74-key-features)
+
+8. [Utils Documentation](#8-utils-documentation)  
+   8.1 [Overview](#81-overview)   
+   8.2 [Folder Structure](#82-folder-structure)  
+   8.3 [Common Utilities](#83-common-utilities)   
+   8.4 [Config Utilities](#84-config-utilities)  
+   8.5 [Formatter Utilities](#85-formatter-utilities)    
+   8.6 [Validation Utilities](#86-validation-utilities)  
+   8.7 [Usage Examples](#87-usage-examples)  
+   1.  [String Utilities](#1-string-utilities)  
+   2.  [Toast Utility](#2-toast-utility)  
+   3.  [Date Formatting](#3-date-formatting)  
+   4.  [Get Config](#4-get-config)  
+   5.  [Data Fromatting](#5-data-formatting)  
+   6.  [Field Validation](#6-field-validation)  
+   7.  [Validation Functions](#7-validation-functions)  
+
+  
+
+
+
 ## 1. Introduction
 
 ### 1.1 Overview
@@ -1184,3 +1210,341 @@ const MyComponent = () => {
 };
 ```
 
+## 7. Navigation Documentation
+
+### 7.1 Structure
+The app leverages **React Navigation** to manage navigation flows between screens. It employs a combination of stack and tab navigators to create a structured and user-friendly navigation experience.
+
+---
+
+### 7.2 Navigators
+
+#### 1. **`AppNavigator.js`**
+This is the main navigator that manages the overall tab navigation structure within the application. It is the entry point for the bottom tab navigation.
+
+- **Purpose**:  
+  Defines and configures the bottom tab navigation structure, providing access to various sections of the app via tabs.
+
+- **Example Tabs**:
+  - **Home**
+  - **Categories**
+  - **Cart**
+  - **Orders**
+  - **Profile**
+
+
+- **Key Dependencies**:
+  - `@react-navigation/bottom-tabs`: For creating bottom tab navigators.
+  
+- **Sample Implementation**:
+  ```js
+  import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+  import HomeScreen from '@screens/HomeScreen';
+  import ProfileScreen from '@screens/ProfileScreen';
+
+  const Tab = createBottomTabNavigator();
+
+  const AppNavigator = () => {
+    return (
+      <Tab.Navigator>
+        <Tab.Screen name="Home" component={HomeScreen} />
+        <Tab.Screen name="Profile" component={ProfileScreen} />
+      </Tab.Navigator>
+    );
+  };
+
+  export default AppNavigator;
+  ```
+
+---
+
+#### 2. **`StackNavigator.js`**
+This handles navigation between different screens of the application, primarily using a stack-based approach.
+
+- **Purpose**:  
+  Manages stack-based navigation, handling transitions between screens such as forms, details, and other workflows that require hierarchical navigation.
+
+- **Key Dependencies**:
+  - `@react-navigation/stack`: For creating a stack-based navigation flow.
+
+- **Sample Implementation**:
+  ```js
+  import { createStackNavigator } from '@react-navigation/stack';
+  import HomeScreen from '@screens/HomeScreen';
+  import DetailsScreen from '@screens/DetailsScreen';
+
+  const Stack = createStackNavigator();
+
+  const StackNavigator = () => {
+    return (
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Details" component={DetailsScreen} />
+      </Stack.Navigator>
+    );
+  };
+
+  export default StackNavigator;
+  ```
+
+---
+
+### 7.3 Navigation Flow
+
+The navigation system relies on both stack and tab navigators. **`AppNavigator.js`** manages the bottom tab bar, allowing users to navigate between major sections of the app, while **`StackNavigator.js`** is responsible for handling screen transitions within each section.
+
+- **Navigation Flow Example**:
+  1. **AppNavigator.js**: Manages overall app navigation with tabs (e.g., Home, Profile, Orders).
+  2. **StackNavigator.js**: Handles detailed navigation within individual sections, allowing users to drill down into specific screens such as viewing details or forms.
+
+---
+
+### 7.4 Key Features
+
+- **Deep Linking**: Supports deep linking to handle external URLs and navigate to specific app screens.
+- **Screen Transition Options**: Provides smooth transitions between screens, with custom animations for an enhanced user experience.
+
+## 8. Utils Documentation
+
+### 8.1 Overview
+The `utils` folder contains helper functions, configuration, data formatters, and validation logic that is shared across various parts of the application. It is organized into subfolders for better modularity and code reuse.
+
+### 8.2 Folder Structure
+- **`common`**: Contains common utility functions and helpers used throughout the app.
+  - **`stringUtils.js`**: Contains string manipulation utilities like truncation.
+  - **`toastUtils.js`**: Provides toast message functionality using `react-native-toast-message`.
+  - **`date/`**: Contains date-related utilities.
+    - **`formatDate.js`**: Formats date strings.
+    - **`formatDateTime.js`**: Formats date-time strings.
+
+- **`config`**: Contains configuration utilities.
+  - **`getConfig.js`**: Provides app-specific configurations based on environment variables.
+
+- **`formatter`**: Contains data formatting utilities.
+  - **`formatData.js`**: Formats data into a structure suitable for display in grids or lists.
+
+- **`validation`**: Contains validation utilities used for form and data validation.
+  - **`validation.js`**: Provides functions to validate form fields.
+  - **`validationFunctions.js`**: Contains individual validation logic like email and phone number validation.
+  - **`validationRules.js`**: Defines reusable validation rules for various form fields.
+
+---
+
+### 8.3 Common Utilities
+
+####  `stringUtils.js`
+This file provides utility functions for manipulating strings:
+- **`truncateString(str, maxLength)`**: Trims the string to the specified length and appends ellipses (`...`) if necessary.
+  ```js
+  export const truncateString = (str, maxLength) => {
+      return str.length > maxLength ? str?.trim().slice(0, maxLength) + '...' : str.trim();
+  };
+  ```
+
+####  `toastUtils.js`
+Handles displaying toast messages:
+- **`showToast({ type, title, message })`**: Displays a toast notification at the bottom of the screen.
+  ```js
+  export const showToast = ({ type, title, message }) => {
+    Toast.show({
+      type,
+      text1: title,
+      text2: message,
+      position: "bottom",
+    });
+  };
+  ```
+
+#### Date Utilities (`date/formatDate.js` and `date/formatDateTime.js`)
+- **`formatDate(date, formatString)`**: Formats the given date into a human-readable string using `date-fns`.
+- **`formatDateTime(date, formatString)`**: Formats both date and time.
+  ```js
+  export const formatDate = (date = new Date(), formatString = 'dd MMMM yyyy') => {
+    return date ? format(new Date(date), formatString) : '';
+  };
+  ```
+
+---
+
+### 8.4 Config Utilities
+
+####  `getConfig.js`
+Retrieves the app's specific configurations based on environment variables:
+- **`getConfig(appName)`**: Returns app-specific config data for UAE or Oman projects.
+  ```js
+  export const getConfig = (appName) => {
+    const configs = {
+      [process.env.EXPO_PUBLIC_APP_NAME_UAE]: {
+        appName: process.env.EXPO_PUBLIC_APP_NAME_UAE,
+        packageName: process.env.EXPO_PUBLIC_PACKAGE_NAME_UAE,
+        projectId: process.env.EXPO_PUBLIC_PROJECT_ID_UAE,
+      },
+      [process.env.EXPO_PUBLIC_APP_NAME_OMAN]: {
+        appName: process.env.EXPO_PUBLIC_APP_NAME_OMAN,
+        packageName: process.env.EXPO_PUBLIC_PACKAGE_NAME_OMAN,
+        projectId: process.env.EXPO_PUBLIC_PROJECT_ID_OMAN,
+      },
+    };
+    return configs[appName] || {};
+  };
+  ```
+
+---
+
+### 8.5 Formatter Utilities
+
+####  `formatData.js`
+Formats a list of data into rows and columns, filling in empty spaces where necessary:
+- **`formatData(dataList, numColumns)`**: Organizes data into a grid format with a specified number of columns.
+  ```js
+  export const formatData = (dataList, numColumns) => {
+      const totalRows = Math.ceil(dataList.length / numColumns);
+      const totalItems = totalRows * numColumns;
+      const formattedData = [...dataList];
+      if (dataList.length < totalItems) {
+          const emptyItemCount = totalItems - dataList.length;
+          for (let i = 0; i < emptyItemCount; i++) {
+              formattedData.push({ key: 'blank', empty: true });
+          }
+      }
+      return formattedData;
+  };
+  ```
+
+---
+
+### 8.6 Validation Utilities
+
+#### `validation.js`
+Handles validation for multiple form fields:
+- **`validateFields(formData, fieldsToValidate)`**: Validates form data against predefined rules.
+  ```js
+  export const validateFields = (formData, fieldsToValidate) => {
+    const errors = {};
+    let isValid = true;
+    fieldsToValidate.forEach(field => {
+      const rule = allValidationRules[field];
+      if (rule && !rule.validate(formData[field])) {
+        errors[field] = rule.message;
+        isValid = false;
+      }
+    });
+    return { isValid, errors };
+  };
+  ```
+
+#### `validationFunctions.js`
+Defines individual validation logic for different input types:
+- **`validateRequired(value)`**: Checks if a value is present.
+- **`validateEmail(email)`**: Validates email format.
+- **`validatePhoneNumber(number)`**: Validates a 10-digit phone number.
+  ```js
+  export const validateRequired = value => !!value;
+  export const validateEmail = email => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  export const validatePhoneNumber = number => /^[0-9]{10}$/.test(number);
+  ```
+
+#### `validationRules.js`
+Provides reusable validation rules for different fields. Each rule has a message and a validation function:
+- **`allValidationRules`**: Contains validation rules for fields like `name`, `phoneNumber`, `emailAddress`, and more.
+  ```js
+  export const allValidationRules = {
+    name: { message: 'Please enter the Name', validate: validateRequired },
+    phoneNumber: { message: 'Please enter a valid phone number', validate: value => validateRequired(value) && validatePhoneNumber(value) },
+    emailAddress: { message: 'Please enter a valid email address', validate: value => validateRequired(value) && validateEmail(value) },
+    // Additional rules here...
+  };
+  ```
+
+### 8.7 Usage Examples
+
+#### 1. **String Utilities**
+
+```javascript
+import { truncateString } from '@utils/common';
+
+const longText = 'This is a very long string that needs to be truncated.';
+const shortText = truncateString(longText, 20);
+console.log(shortText);  // Output: 'This is a very long...'
+```
+
+#### 2. **Toast Utility**
+
+```javascript
+import { showToast } from '@utils/common';
+
+showToast({
+  type: 'success',
+  title: 'Success',
+  message: 'Operation completed successfully!',
+});
+```
+
+#### 3. **Date Formatting**
+
+```javascript
+import { formatDate, formatDateTime } from '@utils/common/date';
+
+const formattedDate = formatDate(new Date());
+console.log(formattedDate); // Output: '12 September 2024'
+
+const formattedDateTime = formatDateTime(new Date());
+console.log(formattedDateTime); // Output: '12 September 2024 14:35:12'
+```
+
+#### 4. **Get Config**
+
+```javascript
+import { getConfig } from '@utils/config';
+
+const appConfig = getConfig('myAppName');
+console.log(appConfig); 
+// Output: { appName: 'myAppName', packageName: 'com.example.myapp', projectId: '123456' }
+```
+
+#### 5. **Data Formatting**
+
+```javascript
+import { formatData } from '@utils/formatters';
+
+const dataList = [{ id: 1 }, { id: 2 }, { id: 3 }];
+const formattedList = formatData(dataList, 2);
+console.log(formattedList); 
+// Output: Formatted array with rows/columns structure and filled empty items if necessary
+```
+
+#### 6. **Field Validation**
+
+```javascript
+import { validateFields } from '@utils/validation';
+
+const formData = {
+  name: '',
+  emailAddress: 'invalid-email',
+  phoneNumber: '1234567890',
+};
+
+const fieldsToValidate = ['name', 'emailAddress', 'phoneNumber'];
+
+const { isValid, errors } = validateFields(formData, fieldsToValidate);
+console.log(isValid);  // Output: false
+console.log(errors);   
+/* Output:
+{
+  name: 'Please enter the Name',
+  emailAddress: 'Please enter a valid email address',
+}
+*/
+```
+
+#### 7. **Validation Functions**
+
+```javascript
+import { validateEmail, validateRequired } from '@utils/validation/validationFunction';
+
+const isNameValid = validateRequired('John');
+console.log(isNameValid);  // Output: true
+
+const isEmailValid = validateEmail('test@example.com');
+console.log(isEmailValid);  // Output: true
+```
