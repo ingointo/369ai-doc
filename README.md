@@ -51,6 +51,8 @@
    6.  [Field Validation](#6-field-validation)  
    7.  [Validation Functions](#7-validation-functions)  
 
+9. [Step-by-Step Guide for Dynamically Building an Expo App with Different Currencies and Project Name/ID](#9-step-by-step-guide-for-dynamically-building-an-expo-app-with-different-currencies-and-project-nameid)  
+
   
 
 
@@ -1548,3 +1550,137 @@ console.log(isNameValid);  // Output: true
 const isEmailValid = validateEmail('test@example.com');
 console.log(isEmailValid);  // Output: true
 ```
+
+## 9. Step-by-Step Guide for Dynamically Building an Expo App with Different Currencies and Project Name/ID
+
+This guide outlines how to dynamically build your Expo app with different configurations such as currencies, project names, and IDs. It also includes building locally and on the server using **EAS Build**.
+
+---
+
+### 1. **Expo Development Setup**
+
+Before you start building your app, ensure that you are logged into Expo and EAS:
+
+1. Open the terminal.
+2. Login to **Expo Dev** and **EAS** using the following credentials:
+
+    ```bash
+    eas login
+    ```
+
+    - **Username**: `alpplaybuild`
+    - **Password**: `Alphalize@2023`
+
+### 2. **Local and Server Builds**
+
+You can build your app either locally or on the server:
+
+- **Local Build**:
+  
+  Run the following command to create a local build for Android:
+
+  ```bash
+  eas build -p android --profile preview --local
+  ```
+
+- **Server Build**:
+  
+  To generate a server build for Android:
+
+  ```bash
+  eas build -p android --profile preview
+  ```
+
+---
+
+### 3. **Configuration for Project Name, Project ID, and Currencies**
+
+Follow these steps to dynamically configure the Expo app for different currencies and project names:
+
+#### 3.1 **Update the `.env` File**
+
+1. Open the `.env` file in your project.
+2. Update the following variable to match the desired app (for example, **369aiOman** or **369aiUAE**):
+
+    ```bash
+    APP_NAME=369aiUAE  # or 369aiOman
+    ```
+
+#### 3.2 **Update Expo Profile**
+
+1. Open the `app.json` or `app.config.js` file.
+2. Ensure that the app name matches the `APP_NAME` value from your `.env` file.
+
+#### 3.3 **Modify `package.json`**
+
+1. Open the `package.json` file.
+2. Add the following key-value pair:
+
+    ```json
+    "type": "module"
+    ```
+
+    This is required to ensure compatibility with modern JavaScript.
+
+---
+
+### 4. **Generate the `app.json` File**
+
+1. Run the following command to generate the `app.json` file with the appropriate project ID, package name, and other details:
+
+    ```bash
+    npm run generate-app-json
+    ```
+
+    This script will generate the required values based on the app name specified in the `.env` file.
+
+#### 4.1 **Ensure Correct Scripts in `package.json`**
+
+In your `package.json`, include the following script to handle the generation of `app.json`:
+
+```json
+"scripts": {
+  "generate-app-json": "node scripts/generateAppJson.js"
+}
+```
+
+Your `generateAppJson.js` script should read from the `.env` file and update `app.json` accordingly.
+
+---
+
+### 5. **Revert `package.json` to CommonJS**
+
+Once you have successfully generated the `app.json` file, revert the `"type": "module"` change in `package.json` back to `"commonjs"` to avoid errors during the build.
+
+Your `package.json` should now look like this:
+
+```json
+{
+  "type": "commonjs"
+}
+```
+
+---
+
+### 6. **Build the Expo App**
+
+Once everything is configured, build your app:
+
+1. For regular Expo CLI builds:
+
+    ```bash
+    expo build:android
+    ```
+
+2. For EAS builds:
+
+    ```bash
+    eas build -p android --profile preview
+    ```
+
+---
+
+### Additional Notes:
+
+- Always double-check the configuration in your `app.json` to make sure it aligns with your desired settings.
+- Ensure that the `generateAppJson.js` script correctly reads the `.env` file and updates the `app.json` file dynamically based on the app name, project ID, package name, etc.
