@@ -1559,18 +1559,22 @@ This guide outlines how to dynamically build your Expo app with different config
 
 ### 1. **Expo Development Setup**
 
-Before you start building your app, ensure that you are logged into Expo and EAS:
+Before starting the build process, make sure you're logged into both **Expo** and **EAS**:
 
-1. Open the terminal.
-2. Login to **Expo Dev** and **EAS** using the following credentials:
+1. Open your terminal.
+2. Log in to **Expo Dev** and **EAS** by running the following command:
 
     ```bash
     eas login
     ```
 
-    - **Username**: `alpplaybuild`
-    - **Password**: `Alphalize@2023`
+   For project access, you will find the credentials in the repository’s README (ensure you have permission to access this information):
+   [Project Access Guide](https://github.com/ingointo/369ai-latest/blob/main/README.md)
+   
+   - **Username**: **********  
+   - **Password**: **********  
 
+> Note: Do not share these credentials publicly.
 ### 2. **Local and Server Builds**
 
 You can build your app either locally or on the server:
