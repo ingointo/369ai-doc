@@ -27,7 +27,7 @@
    5.1 [Folder Structure & Explanation](#51-folder-structure)  
 
 6. [Hooks Documentation](#6-hooks-documentation)   
-   5.1 [Folder Structure & Explanation](#51-folder-structure) 
+   6.1 [Folder Structure & Explanation](#61-folder-structure) 
    
 ## 1. Introduction
 
@@ -1183,3 +1183,4 @@ const MyComponent = () => {
   );
 };
 ```
+
