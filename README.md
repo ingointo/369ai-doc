@@ -15,8 +15,20 @@
 
 3. [Components Documentation](#3-components-documentation)  
    3.1 [Overview](#31-overview)  
-   3.2 [Component Index](#32-component-index)  
+   3.2 [Component Index](#32-component-index) 
 
+4. [Store Documentation](#4-store-documentation)  
+   4.1 [auth](#41-auth)  
+   4.2 [box](#42-box)  
+   4.3 [currency](#43-currency)  
+   4.4 [product](#44-product)  
+
+5. [API Documentation](#5-api-documentation)  
+   5.1 [Folder Structure & Explanation](#51-folder-structure)  
+
+6. [Hooks Documentation](#6-hooks-documentation)   
+   5.1 [Folder Structure & Explanation](#51-folder-structure) 
+   
 ## 1. Introduction
 
 ### 1.1 Overview
@@ -158,7 +170,7 @@ Each component in this project is reusable and designed for flexibility this can
 21. [TextInput](#21-textinput)
 
 
-## 1. CalendarScreen
+### 1. CalendarScreen
 
 A scrollable calendar interface.
 
@@ -184,7 +196,7 @@ import { CalendarScreen } from '@components/Calendar';
 
 ---
 
-## 2. VerticalScrollableCalendar
+### 2. VerticalScrollableCalendar
 
 A vertical scrollable calendar interface.
 
@@ -208,7 +220,7 @@ import { VerticalScrollableCalendar } from '@components/Calendar';
 
 ---
 
-## 3. DropdownSheet
+### 3. DropdownSheet
 
 A bottom sheet dropdown for selecting options.
 
@@ -239,7 +251,7 @@ import { DropdownSheet } from '@components/common/BottomSheets';
 
 ---
 
-## 4. MultiSelectDropdownSheet
+### 4. MultiSelectDropdownSheet
 
 A bottom sheet dropdown for selecting multiple options.
 
@@ -268,7 +280,7 @@ import { MultiSelectDropdownSheet } from '@components/common/BottomSheets';
 | `previousSelections`| Array     | List of items selected previously                             | `[]`            |
 | `onClose`           | Function  | Function called when the sheet is closed                      | `() => {}`      |
 
-## 5. Button
+### 5. Button
 
 A customizable button with loading state and disabled state handling.
 
@@ -300,7 +312,7 @@ import { Button } from '@components/common/Button';
 
 ---
 
-## 6. FABButton
+### 6. FABButton
 
 A Floating Action Button (FAB) to trigger an action, commonly used for adding items.
 
@@ -320,7 +332,7 @@ import { FABButton } from '@components/common/Button';
 
 ---
 
-## 7. LoadingButton
+### 7. LoadingButton
 
 A button with a loading spinner to indicate a process in progress.
 
@@ -349,7 +361,7 @@ import { LoadingButton } from '@components/common/Button';
 
 ---
 
-## 8. PressableInput
+### 8. PressableInput
 
 An input field that can be pressed to trigger an action, with optional icon support.
 
@@ -374,7 +386,7 @@ import { PressableInput } from '@components/common/Button';
 | `handlePress`| function | Function to call when the input is pressed           | `() => {}`   |
 
 ---
-## 9. CheckBox
+### 9. CheckBox
 
 A checkbox with a label, customizable to handle checked and unchecked states.
 
@@ -400,7 +412,7 @@ import { CheckBox } from '@components/common/CheckBox';
 
 ---
 
-## 10. DetailCheckBox
+### 10. DetailCheckBox
 
 A read-only checkbox used specifically for displaying the checked or unchecked state in detailed views. For interactive checkboxes, consider using the [CheckBox](#9-checkbox) component instead.
 
@@ -425,7 +437,7 @@ import { DetailCheckBox } from '@components/common/Detail';
 ---
 
 
-## 11. SafeAreaView
+### 11. SafeAreaView
 A view that takes care of safe area constraints, ensuring content does not overlap system UI like the status bar.
 
 ### Usage
@@ -448,7 +460,7 @@ import { SafeAreaView } from '@components/containers';
 ---
 
 
-## 12. SearchContainer
+### 12. SearchContainer
 A search input component with a magnifying glass icon.
 
 ### Usage
@@ -468,7 +480,7 @@ import { SearchContainer } from '@components/containers';
 
 ---
 
-## 13. RoundedContainer
+### 13. RoundedContainer
 A container with rounded top corners.
 
 ### Usage
@@ -490,7 +502,7 @@ import { RoundedContainer } from '@components/containers';
 
 ---
 
-## 14. RoundedScrollContainer
+### 14. RoundedScrollContainer
 A scrollable container with rounded top corners, useful for wrapping content that may require scrolling.
 
 ### Usage
@@ -515,7 +527,7 @@ import { RoundedScrollContainer } from '@components/containers';
 ---
 
 
-## 15. BottomSheetHeader
+### 15. BottomSheetHeader
 A header component for bottom sheets with an optional "plus" icon for additional actions.
 
 ### Usage
@@ -536,7 +548,7 @@ import { BottomSheetHeader } from '@components/Header';
 
 ---
 
-## 16. NavigationHeader
+### 16. NavigationHeader
 A customizable header with a back button, optional icons, and a logo.
 
 ### Usage
@@ -567,7 +579,7 @@ import { NavigationHeader } from '@components/Header';
 
 ---
 
-## 17. AnimatedLoader
+### 17. AnimatedLoader
 A component that displays an animated loader, useful for showing loading states.
 
 ### Usage
@@ -587,7 +599,7 @@ import { AnimatedLoader } from '@components/Loader';
 
 ---
 
-## 18. OverlayLoader
+### 18. OverlayLoader
 An overlay loader that covers the entire screen with a loading indicator.
 
 ### Usage
@@ -607,7 +619,7 @@ import { OverlayLoader } from '@components/Loader';
 
 ---
 
-## 19. CustomTabBar
+### 19. CustomTabBar
 A custom tab bar for React Native Top tab navigation.
 
 ### Usage
@@ -626,7 +638,7 @@ import { CustomTabBar } from '@components/TabBar';
 
 ---
 
-## 20. DetailField
+### 20. DetailField
 
 A detail view field for displaying non-editable information with optional icons.
 
@@ -652,7 +664,7 @@ import { DetailField } from '@components/common/Detail';
 
 ---
 
-## 21. TextInput
+### 21. TextInput
 A customizable `TextInput` component that includes features like error handling, password hiding, icons, and label with optional asterisk for required fields.
 
 #### Usage
@@ -708,4 +720,466 @@ import { TextInput } from '@components/common/TextInput';
 - **Password Visibility**: A toggle button (eye icon) for showing or hiding passwords when `password` prop is true.
 - **Validation Icon**: An alert icon if `validate` is true and validation fails.
 
+## 4. Store Documentation
+
+The `stores` folder contains Zustand-based state management files that help manage various global states across the application. These stores provide centralized data handling and are organized into specific modules: `auth`, `box`, `currency`, and `product`.
+
+#### 4.1 `auth` Folder
+
+**File**: `useAuthStore.js`
+
+This store manages the authentication status of users.
+
+- **State Variables**:
+  - `isLoggedIn`: Tracks the login status (`boolean`).
+  - `user`: Stores the currently logged-in user’s details.
+- **Actions**:
+  - `login(userData)`: Updates the state to reflect a logged-in user with the provided `userData`.
+  - `logout()`: Resets the authentication state, logging out the user.
+
+#### 4.2 `box` Folder
+
+**File**: `useInspectionStore.js`
+
+This store tracks the inspection status of boxes.
+
+- **State Variables**:
+  - `inspectedIds`: Stores an array of IDs of the inspected boxes.
+- **Actions**:
+  - `addInspectedId(id)`: Adds a new box ID to the inspected list.
+  - `resetInspectedIds()`: Resets the inspection state by clearing all inspected IDs.
+
+#### 4.3 `currency` Folder
+
+**File**: `useCurrencyStore.js`
+
+This store handles currency selection based on the user's package.
+
+- **State Variables**:
+  - `currency`: Tracks the selected currency (default: AED).
+- **Actions**:
+  - `setCurrency(packageName)`: Dynamically sets the currency based on the package name, switching between AED and OMR depending on the environment variable `EXPO_PUBLIC_PACKAGE_NAME_OMAN`.
+
+#### 4.4 `product` Folder
+
+**File**: `useProductStore.js`
+
+This store manages the products added to the application.
+
+- **State Variables**:
+  - `products`: Stores an array of product objects.
+- **Actions**:
+  - `addProduct(product)`: Adds a product if it doesn't already exist or updates an existing product with new quantity and price information.
+  - `removeProduct(productId)`: Removes a product from the store by its ID.
+  - `clearProducts()`: Clears all products from the store.
+
+## 5. **API Documentation**
+
+The API folder contains several subfolders that organize the API configuration, details, dropdowns, endpoints, and services for the 369ai application. The structure and usage of each section are documented below:
+
+
+### 5.1 **Folder Structure**
+- `config/`  
+  Contains the base API configuration for the application.
+
+- `details/`  
+  Handles API calls related to fetching detailed information, such as invoice details, vendor details, etc.
+
+- `dropdowns/`  
+  Manages dropdown data used in forms and selection lists across the application.
+
+- `endpoints/`  
+  Holds the API endpoint constants for various sections of the application.
+
+- `services/`  
+  Contains utility functions for common API operations (like GET, POST, PUT, etc.) and error handling.
+
 ---
+
+### **1. Configuration: `config/apiconfig.js`**
+
+This file sets the base URL for the API, which is used in all API requests.
+
+```js
+// src/api/config.js
+const API_BASE_URL = 'https://test.369ai.biz:3016'; // backend test environment
+export default API_BASE_URL;
+```
+
+**Purpose:**  
+This provides a centralized point for the base URL of the API, making it easy to switch between different environments (e.g., development, staging, production).
+
+---
+
+### **2. Details: `details/detailapi.js`**
+
+This file contains functions to fetch detailed information about various entities like invoices, vendors, and more. It uses a common `get` method for sending HTTP GET requests and handles errors using a utility function.
+
+#### Key Functions:
+
+1. **`fetchAuditDetails(endpoint, sequenceNo)`**  
+   Fetches audit details by sequence number.
+
+   ```js
+   const fetchAuditDetails = async (endpoint, sequenceNo) => {
+     const response = await get(`${endpoint}?sequence_no=${sequenceNo}`);
+     return response.data;
+   };
+   ```
+
+2. **`fetchDetails(endpoint, detailId)`**  
+   Fetches details for a specific entity using a detail ID.
+
+   ```js
+   const fetchDetails = async (endpoint, detailId) => {
+     const response = await get(`${endpoint}/${detailId}`);
+     return response.data;
+   };
+   ```
+
+3. **`fetchDetailBySearch(endpoint, search, warehouseId)`**  
+   Fetches details based on search criteria and warehouse ID.
+
+   ```js
+   const fetchDetailBySearch = async (endpoint, search, warehouseId) => {
+     const response = await get(`${endpoint}?name=${search}&warehouse_id=${warehouseId}`);
+     return response.data;
+   };
+   ```
+
+---
+
+### **3. Dropdowns: `dropdowns/dropdownApi.js`**
+
+The `dropdownApi.js` file is responsible for fetching data for various dropdown lists in the application, such as customer names, products, and currencies.
+
+#### Key Functions:
+
+1. **`fetchInvoiceDropdown()`**  
+   Fetches the invoice dropdown options.
+
+   ```js
+   export const fetchInvoiceDropdown = async () => {
+     return fetchData(DROP_DOWN_API_ENDPOINTS.INVOICE);
+   };
+   ```
+
+2. **`fetchProductsDropdown()`**  
+   Fetches the product options.
+
+   ```js
+   export const fetchProductsDropdown = async () => {
+     return fetchData(DROP_DOWN_API_ENDPOINTS.PRODUCTS);
+   };
+   ```
+
+3. **`fetchCountryDropdown()`**  
+   Fetches the list of countries.
+
+   ```js
+   export const fetchCountryDropdown = async () => {
+     return fetchData(DROP_DOWN_API_ENDPOINTS.VIEW_COUNTRY);
+   };
+   ```
+
+---
+
+### **4. Endpoints: `endpoints/endpoints.js`**
+
+This file centralizes all the API endpoint URLs, making it easy to reference them across the application. This promotes consistency and maintainability.
+
+```js
+// src/api/endpoints/endpoints.js
+export const DETAIL_API_ENDPOINTS = {
+  GET_INVOICE_DETAILS: `${API_BASE_URL}/invoice/details`,
+  GET_VENDOR_DETAILS: `${API_BASE_URL}/vendor/details`,
+  // Add other endpoints as needed
+};
+
+export const DROP_DOWN_API_ENDPOINTS = {
+  INVOICE: `${API_BASE_URL}/dropdown/invoices`,
+  PRODUCTS: `${API_BASE_URL}/dropdown/products`,
+  VIEW_COUNTRY: `${API_BASE_URL}/dropdown/countries`,
+  // Add other dropdown endpoints as needed
+};
+```
+
+---
+
+### **5. Services: `services/utils.js`**
+
+This file includes utility functions that facilitate the API calls, including GET and POST methods. These utility functions help to reduce repetition and centralize common logic.
+
+```js
+// src/api/services/utils.js
+import axios from "axios";
+import handleApiError from "@api/utils/handleApiError";
+
+// Common GET request
+export const get = async (url, params = {}) => {
+  try {
+    const response = await axios.get(url, { params });
+    return response;
+  } catch (error) {
+    handleApiError(error);
+    throw error;
+  }
+};
+
+// Common POST request
+export const post = async (url, data) => {
+  try {
+    const response = await axios.post(url, data);
+    return response;
+  } catch (error) {
+    handleApiError(error);
+    throw error;
+  }
+};
+```
+
+---
+
+### **Error Handling: `utils/handleApiError.js`**
+
+This utility handles API errors and logs them or displays user-friendly error messages.
+
+```js
+// src/api/utils/handleApiError.js
+export default function handleApiError(error) {
+  if (error.response) {
+    console.error("API Error:", error.response.data);
+  } else if (error.request) {
+    console.error("No response received:", error.request);
+  } else {
+    console.error("Error setting up request:", error.message);
+  }
+}
+```
+
+---
+
+### **Example API Call: Fetch Invoice Details**
+
+Below is an example of how to use the API to fetch invoice details using the `fetchBills.invoiceDetails` function.
+
+```js
+import { fetchBills } from '@api/details/detailapi';
+
+const fetchInvoiceDetailsExample = async (sequenceNo) => {
+  try {
+    const invoiceDetails = await fetchBills.invoiceDetails(sequenceNo);
+    console.log('Invoice Details:', invoiceDetails);
+  } catch (error) {
+    console.error('Error fetching invoice details:', error);
+  }
+};
+
+fetchInvoiceDetailsExample(12345);
+```
+
+## 6. Hooks Documentation
+
+The `hooks/` folder contains custom hooks that enhance the functionality of the 369ai project by managing state, optimizing data fetching, debouncing, and handling loaders. These hooks abstract common logic, making the components more maintainable and reusable.
+
+---
+
+### 6.1 **Folder Structure**
+- `useDataFetching.js`  
+  Provides a hook for handling data fetching with pagination.
+
+- `useDebouncedSearch.js`  
+  Manages search functionality with debouncing to optimize performance by limiting the frequency of API calls.
+
+- `useLoader.js`  
+  Controls loader display logic, ensuring a smooth user experience by maintaining a minimum display time for loading indicators.
+
+---
+
+### **1. `useDataFetching.js`**
+
+The `useDataFetching` hook abstracts the logic for fetching paginated data and handling the loading state.
+
+#### **Parameters:**
+- `fetchDataCallback` (function): The callback function to fetch data. It accepts parameters such as `offset`, `limit`, and any additional filters.
+
+#### **States:**
+- **`data`** (array): Holds the fetched data.
+- **`loading`** (boolean): Indicates whether data is currently being fetched.
+- **`allDataLoaded`** (boolean): Flags whether all data has been fetched (used to prevent unnecessary additional API calls).
+- **`offset`** (number): Tracks the current pagination offset.
+
+#### **Key Functions:**
+
+1. **`fetchData(newFilters)`**  
+   Fetches the initial data set with the given filters.
+
+   ```js
+   const fetchData = useCallback(async (newFilters = {}) => {
+     startLoading();
+     try {
+       const params = { offset: 0, limit: 20, ...newFilters };
+       const fetchedData = await fetchDataCallback(params);
+       setData(fetchedData);
+       setAllDataLoaded(fetchedData.length === 0);
+     } catch (error) {
+       console.error('Error fetching data:', error);
+     } finally {
+       stopLoading();
+     }
+   }, [fetchDataCallback, startLoading, stopLoading]);
+   ```
+
+2. **`fetchMoreData(newFilters)`**  
+   Loads more data as the user scrolls, appending it to the existing data.
+
+   ```js
+   const fetchMoreData = async (newFilters = {}) => {
+     if (loading || allDataLoaded) return;
+     startLoading();
+     try {
+       const params = { offset: offset + 1, limit: 20, ...newFilters };
+       const fetchedData = await fetchDataCallback(params);
+       if (fetchedData.length === 0) {
+         setAllDataLoaded(true);
+       } else {
+         setData((prevData) => [...prevData, ...fetchedData]);
+         setOffset((prevOffset) => prevOffset + 1);
+       }
+     } catch (error) {
+       console.error('Error fetching more data:', error);
+     } finally {
+       stopLoading();
+     }
+   };
+   ```
+
+3. **`handleSearchTextChange(text)`**  
+   Uses `debounce` to delay API calls while typing in search text, reducing the number of requests sent.
+
+   ```js
+   const handleSearchTextChange = debounce((text) => {
+     fetchData(text);
+   }, 1000);
+   ```
+
+#### **Return Values:**
+- `data`: Fetched data.
+- `loading`: Loading state.
+- `fetchData`: Function to fetch initial data.
+- `fetchMoreData`: Function to fetch more data.
+- `handleSearchTextChange`: Function to handle search input changes with debouncing.
+
+---
+
+### **2. `useDebouncedSearch.js`**
+
+The `useDebouncedSearch` hook provides a mechanism to delay search input processing, reducing unnecessary API calls or heavy computations by debouncing the user input.
+
+#### **Parameters:**
+- `callback` (function): The function to call when the debounced search input changes.
+- `delay` (number): The delay (in milliseconds) to wait before invoking the callback after the user stops typing. Default is 1000ms.
+
+#### **States:**
+- **`searchText`** (string): The current value of the search input.
+
+#### **Key Functions:**
+
+1. **`debouncedSearch(text)`**  
+   Uses lodash's `debounce` to call the `callback` function only after the user stops typing for the specified delay.
+
+   ```js
+   const debouncedSearch = useCallback(
+     debounce((text) => {
+       setSearchText(text);
+       callback(text);
+     }, delay),
+     []
+   );
+   ```
+
+2. **`handleSearchTextChange(text)`**  
+   Handles the input changes and triggers the debounced search.
+
+   ```js
+   const handleSearchTextChange = (text) => {
+     debouncedSearch(text);
+   };
+   ```
+
+#### **Return Values:**
+- `searchText`: The current search input value.
+- `handleSearchTextChange`: Function to handle changes in the search input field.
+
+---
+
+### **3. `useLoader.js`**
+
+The `useLoader` hook manages the loading state of components. It ensures that loaders are displayed for a minimum amount of time to enhance user experience.
+
+#### **Parameters:**
+- `initialLoading` (boolean): The initial loading state. Default is `false`.
+
+#### **States:**
+- **`loading`** (boolean): Represents whether the loader is active or not.
+- **`startTime`** (useRef): Tracks when the loader started.
+
+#### **Key Functions:**
+
+1. **`startLoading()`**  
+   Starts the loader and records the start time.
+
+   ```js
+   const startLoading = () => {
+     startTime.current = Date.now();
+     setLoading(true);
+   };
+   ```
+
+2. **`stopLoading()`**  
+   Stops the loader after ensuring it has been displayed for at least the minimum time specified by `MINIMUM_LOADER_TIME`.
+
+   ```js
+   const stopLoading = () => {
+     const elapsed = Date.now() - startTime.current;
+     if (elapsed < MINIMUM_LOADER_TIME) {
+       setTimeout(() => {
+         setLoading(false);
+       }, MINIMUM_LOADER_TIME - elapsed);
+     } else {
+       setLoading(false);
+     }
+   };
+   ```
+
+#### **Return Values:**
+- `loading`: The current loading state.
+- `startLoading`: Function to trigger the loader.
+- `stopLoading`: Function to stop the loader.
+
+---
+
+### **Example Usage**
+
+```js
+import { useDataFetching } from '@hooks';
+import { useDebouncedSearch } from '@hooks';
+
+const MyComponent = () => {
+  const { data, loading, fetchData, fetchMoreData, handleSearchTextChange } = useDataFetching(fetchMyDataApi);
+  const { searchText, handleSearchTextChange } = useDebouncedSearch((text) => fetchData({ searchText: text }));
+
+
+  useEffect(() => {
+    fetchData(); // Fetch initial data on mount
+  }, []);
+
+  return (
+    <View>
+      <TextInput onChangeText={handleSearchTextChange} placeholder="Search..." />
+      {loading ? <Loader /> : <DataList data={data} />}
+      <Button title="Load More" onPress={fetchMoreData} />
+    </View>
+  );
+};
+```
