@@ -62,7 +62,6 @@ The Audit Form module is designed to streamline and automate the process of audi
 - **Error Handling**: Uses the `setErrors` function to display validation messages.
 - **Toast Notifications**: Provides success and error feedback via `react-native-toast-message`.
 
-Here’s a detailed breakdown of both the conceptual and technical documentation for the `AuditScreen` module:
 
 ### Audit Screen - Conceptual Documentation
 
