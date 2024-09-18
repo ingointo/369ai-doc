@@ -212,16 +212,3 @@ This structure breaks down both the conceptual and technical aspects of the **Cu
 - **`ActionModal` & `DropdownSheet`**: Handles image uploads and dropdown selections for various fields.
 
 
-## Documentation
-
-[Documentation](https://linktodocumentation)
-
-
-## Environment Variables
-
-To run this project, you will need to add the following environment variables to your .env file
-
-`API_KEY`
-
-`ANOTHER_API_KEY`
-
