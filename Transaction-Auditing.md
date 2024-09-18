@@ -15,7 +15,7 @@ The Audit Form module is designed to streamline and automate the process of audi
 ### **Audit Form - Technical Documentation**
 
 **File Location:**  
-`components/forms/AuditForm.js`
+`src/screens/Home/Options/Audit/AuditForm.js`
 
 **State Variables:**
 - `scrollEnabled`: Controls the scrolling functionality.
@@ -78,7 +78,7 @@ The `AuditScreen` component is used to display a list of auditing records. It fe
 ### Audit Screen - Technical Documentation
 
 **File Location:**
-- `src/screens/AuditScreen.js`
+- `src/screens/Home/Options/Audit/AuditScreen.js`
 
 **State Variables:**
 - **data:** Array holding the fetched audit records.
